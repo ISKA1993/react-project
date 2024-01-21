@@ -1,14 +1,14 @@
-import { render } from "react-dom";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
-import ThemeProvider from "./theme/themeProvider";
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './app/App';
+import { ThemeProvider } from './app/providers/ThemeProvider';
+import './shared/congif/i18next/i18next';
 
 render(
     <BrowserRouter>
         <ThemeProvider>
             <App />
         </ThemeProvider>
-    </BrowserRouter>
-    ,
-    document.getElementById('root')
-)
+    </BrowserRouter>,
+    document.getElementById('root'),
+);
