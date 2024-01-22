@@ -3,7 +3,7 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { AppRouter } from './providers/router';
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback="Loading...">
+            <Suspense fallback="">
                 <Navbar />
                 <div className="content-page ">
                     <Sidebar />

@@ -3,12 +3,15 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './app/App';
 import { ThemeProvider } from './app/providers/ThemeProvider';
 import './shared/congif/i18next/i18next';
+import { ErrorBoundary } from './app/providers/ErrorBoundary/index';
 
 render(
     <BrowserRouter>
-        <ThemeProvider>
-            <App />
-        </ThemeProvider>
+        <ErrorBoundary>
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
+        </ErrorBoundary>
     </BrowserRouter>,
-    document.getElementById('root')
+    document.getElementById('root'),
 );

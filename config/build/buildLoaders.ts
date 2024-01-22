@@ -36,7 +36,6 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         },
     };
 
-
     const cssLoaders = {
         test: /\.s[ac]ss$/i,
         use: [
