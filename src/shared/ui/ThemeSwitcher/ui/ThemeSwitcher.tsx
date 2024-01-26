@@ -1,14 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Theme, useTheme } from 'app/providers/ThemeProvider';
-import WhiteIcons from 'shared/assets/icons/WhiteIcons.svg';
-import DarkIcons from 'shared/assets/icons/DarkIcons.svg';
-import { ThemeButton, Button } from 'shared/ui/button/button';
+import React from 'react';
+import WhiteIcons from '../../../assets/icons/WhiteIcons.svg';
+import DarkIcons from '../../../assets/icons/DarkIcons.svg';
+import { classNames } from '../../../lib/classNames/classNames';
+import { ThemeButton, Button } from '../../../../shared/ui/button/button';
+import { Theme, useTheme } from '../../../../app/providers/ThemeProvider/index';
 
 interface ThemeSwitherProps {
-    className?: string;
+    className: string;
 }
 
-export default function ThemeSwither({ className }: ThemeSwitherProps) {
+function ThemeSwither({ className }: ThemeSwitherProps) {
     const { toggleTheme, theme } = useTheme();
     return (
 
@@ -21,3 +22,5 @@ export default function ThemeSwither({ className }: ThemeSwitherProps) {
         </Button>
     );
 }
+
+export default ThemeSwither;

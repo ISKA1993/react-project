@@ -3,20 +3,11 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type { Config } from 'jest';
+import path from 'path';
 
-const config: Config = {
-    // All imported modules in your tests should be mocked automatically
-    // automock: false,
-
-    // Stop running tests after `n` failures
-    // bail: 0,
-
-    // The directory where Jest should store its cached dependency information
-    // cacheDirectory: "C:\\Users\\Windows 11\\AppData\\Local\\Temp\\jest",
-
-    // Automatically clear mock calls, instances, contexts and results before every test
+export default {
     clearMocks: true,
+    testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: [
         '\\\\node_modules\\\\',
     ],
@@ -36,10 +27,21 @@ const config: Config = {
     ],
 
     testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+        `<rootDir>${path.sep}src${path.sep}**${path.sep}*(*.)@(spec|test).[tj]s?(x)`,
     ],
 
     rootDir: '../../',
+
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTest.ts'],
+
+    moduleNameMapper: {
+        '^.+\\.s?css$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    },
+
+    modulePaths: [
+        '<rootDir>scr',
+    ],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
@@ -151,7 +153,6 @@ const config: Config = {
     // snapshotSerializers: [],
 
     // The test environment that will be used for testing
-    testEnvironment: 'jest-environment-jsdom',
 
     // Options that will be passed to the testEnvironment
     // testEnvironmentOptions: {},
@@ -196,5 +197,3 @@ const config: Config = {
     // Whether to use watchman for file crawling
     // watchman: true,
 };
-
-export default config;

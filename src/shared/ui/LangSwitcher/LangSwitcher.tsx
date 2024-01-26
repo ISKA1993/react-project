@@ -1,12 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import React from 'react';
+import { classNames } from '../../lib/classNames/classNames';
 import { Button, ThemeButton } from '../button/button';
 
 interface LangSwitherProps {
-    className?: string;
+    className: string;
 }
 
-export default function LangSwither({ className }: LangSwitherProps) {
+function LangSwither({ className }: LangSwitherProps) {
     const { t, i18n } = useTranslation();
 
     const togge = () => {
@@ -23,3 +24,5 @@ export default function LangSwither({ className }: LangSwitherProps) {
         </Button>
     );
 }
+
+export default LangSwither;
